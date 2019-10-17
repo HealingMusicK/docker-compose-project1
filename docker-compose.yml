@@ -14,6 +14,13 @@ services:
       context: .
       dockerfile: Dockerfile-nginx
     ports:
-      - 4000:80
+      - 5000:80
     depends_on:
       - flask
+  client:
+    image: client-python
+    build:
+      context: .
+      dockerfile: Dockerfile-client
+    depends_on:
+      - requests
